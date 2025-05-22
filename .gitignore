@@ -1,6 +1,7 @@
 node_modules
 .env
 .env.test
+.env.prost
 npm-debug.log
 .DS_Store
 .vscode
