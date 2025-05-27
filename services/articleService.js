@@ -33,18 +33,22 @@ const createArticle = async (title, content, UserId) => {
             content,
             UserId
         });
+        if (newArticle) {
+            const categories = [1, 2, 3];
+            await newArticle.setCategories(categories);
+        }
         return newArticle;
     } catch (error) {
         return error.message || "Article could not be created";
     }
 };
 
-const updateArticle = async (id, title, content, idUser) => {
+const updateArticle = async (id, title, content, UserId) => {
     try {
         let updatedArticle = await db.Article.update({
             title,
             content,
-            idUser
+            UserId
         }, {
             where: {
                 id,
